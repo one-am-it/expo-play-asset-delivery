@@ -21,10 +21,10 @@
     "expo-play-asset-delivery",
     "ExpoPlayAssetDelivery"
   ],
-  "repository": "https://git.oneam.it/one-am/libraries/expo-play-asset-delivery",
+  "repository": "https://github.com/one-am-it/expo-play-asset-delivery",
   "author": "Christian Grasso <christian@grasso.io>",
   "license": "MIT",
-  "homepage": "https://git.oneam.it/one-am/libraries/expo-play-asset-delivery",
+  "homepage": "https://github.com/one-am-it/expo-play-asset-delivery",
   "devDependencies": {
     "@types/react": "^18.0.25",
     "@types/react-native": "^0.70.6",

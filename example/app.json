@@ -1,0 +1,50 @@
+{
+  "expo": {
+    "name": "expo-play-asset-delivery-example",
+    "plugins": [
+      [
+        "@one-am/expo-play-asset-delivery",
+        [
+          {
+            "name": "assets",
+            "path": "asset-pack"
+          }
+        ]
+      ]
+    ],
+    "platforms": [
+      "android"
+    ],
+    "slug": "expo-play-asset-delivery-example",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "expo.modules.playassetdelivery.example"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1227a28b-0fb6-4b0d-aa0e-b7552594895b"
+      }
+    }
+  }
+}

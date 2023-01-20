@@ -1,0 +1,42 @@
+{
+  "name": "expo-play-asset-delivery",
+  "version": "1.0.0",
+  "description": "Play Asset Delivery integration for Expo",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "expo-module build",
+    "clean": "expo-module clean",
+    "lint": "expo-module lint",
+    "test": "expo-module test",
+    "prepare": "expo-module prepare",
+    "prepublishOnly": "expo-module prepublishOnly",
+    "expo-module": "expo-module",
+    "open:ios": "open -a \"Xcode\" example/ios",
+    "open:android": "open -a \"Android Studio\" example/android"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "expo-play-asset-delivery",
+    "ExpoPlayAssetDelivery"
+  ],
+  "repository": "https://git.oneam.it/one-am/libraries/expo-play-asset-delivery",
+  "author": "Christian Grasso <christian@grasso.io>",
+  "license": "MIT",
+  "homepage": "https://git.oneam.it/one-am/libraries/expo-play-asset-delivery",
+  "devDependencies": {
+    "@types/react": "^18.0.25",
+    "@types/react-native": "^0.70.6",
+    "expo-module-scripts": "^3.0.4",
+    "expo-modules-core": "^1.1.0"
+  },
+  "peerDependencies": {
+    "expo": "*",
+    "react": "*",
+    "react-native": "*"
+  },
+  "dependencies": {
+    "@expo/config-plugins": "^5.0.4"
+  }
+}

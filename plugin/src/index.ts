@@ -13,7 +13,8 @@ const path = require('path');
 
 interface AssetPack {
     name: string,
-    path: string
+    path: string,
+    deliveryMode: 'install-time' | 'fast-follow' | 'on-demand'
 }
 
 const withPlayAssetDelivery: ConfigPlugin<AssetPack[]> = (expoConfig, assetPacks: AssetPack[] = []) => {
@@ -103,7 +104,7 @@ const getAssetPackBuildGradle = (assetPack: AssetPack) => {
 assetPack {
     packName = "${assetPack.name}"
     dynamicDelivery {
-        deliveryType = "install-time"
+        deliveryType = "${assetPack.deliveryMode}"
     }
 }\n`
 }

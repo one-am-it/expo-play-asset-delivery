@@ -83,9 +83,12 @@ android {
 
 repositories {
   mavenCentral()
+  google()
 }
 
 dependencies {
   implementation project(':expo-modules-core')
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${getKotlinVersion()}"
+  implementation 'com.google.android.play:asset-delivery:2.0.1'
+  implementation 'com.google.android.play:asset-delivery-ktx:2.0.1'
 }

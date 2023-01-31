@@ -5,6 +5,6 @@ plugins {
 assetPack {
     packName = "assets"
     dynamicDelivery {
-        deliveryType = "install-time"
+        deliveryType = "fast-follow"
     }
 }

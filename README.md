@@ -48,7 +48,7 @@ if (state.status !== AssetPackStatus.COMPLETED) {
 
 After requesting the download of the asset pack, you can add an event listener to monitor the download progress:
 ```js
-import { addAssetPackProgressListener, AssetPackState } from '@one-am/expo-play-asset-delivery';
+import { addAssetPackProgressListener, AssetPackState } from 'expo-play-asset-delivery';
 
 addAssetPackProgressListener((state: AssetPackState) => {
     // ...

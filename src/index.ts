@@ -16,7 +16,7 @@ export async function requestAssetPackFetch(assetPackNames: string[]): Promise<A
     return ExpoPlayAssetDeliveryModule.requestAssetPackFetch(assetPackNames);
 }
 
-export type AssetPackStates = Record<AssetPackState['name'], AssetPackState[]>
+export type AssetPackStates = Record<AssetPackState['name'], AssetPackState>
 
 export interface AssetPackState {
     name: string;

@@ -66,7 +66,7 @@ class ExpoPlayAssetDeliveryModule : Module() {
     private fun readAssetAsBytes(assetName: String, assetPackName: String?): ByteArray {
         val stream: InputStream
         if (assetPackName != null) {
-            val packLocation = assetPackManager.getPackLocation(assetPackName)?.path()
+            val packLocation = assetPackManager.getPackLocation(assetPackName)?.assetsPath()
             stream = FileInputStream("$packLocation/$assetName")
         } else {
             stream = assetManager.open(assetName)

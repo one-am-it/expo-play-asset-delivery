@@ -55,7 +55,8 @@ addAssetPackProgressListener((state: AssetPackState) => {
 });
 ```
 
-Regardless of 
+Regardless of the delivery mode, you can load the assets by their filename:
+
 ```js
 import { loadPackedAssetAsBase64 } from 'expo-play-asset-delivery';
 

@@ -9,7 +9,7 @@ export async function loadPackedAssetAsBase64(assetName: string): Promise<string
 }
 
 export async function getAssetPackStates(assetPackNames: string[]): Promise<AssetPackStates> {
-    return ExpoPlayAssetDeliveryModule.getAssetPackStates();
+    return ExpoPlayAssetDeliveryModule.getAssetPackStates(assetPackNames);
 }
 
 export async function requestAssetPackFetch(assetPackNames: string[]): Promise<AssetPackStates> {

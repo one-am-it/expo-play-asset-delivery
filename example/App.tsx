@@ -1,6 +1,6 @@
 import {Image, StyleSheet, View} from 'react-native';
 
-import * as ExpoPlayAssetDelivery from 'expo-play-asset-delivery';
+import * as ExpoPlayAssetDelivery from '@one-am/expo-play-asset-delivery';
 import {useEffect, useState} from "react";
 
 export default function App() {

@@ -2,8 +2,6 @@
 
 Play Asset Delivery integration for Expo
 
-**Note that currently only `install-time` delivery mode is supported**
-
 ## Installation
 
 - Configure Expo Plugin in `app.config.js`
@@ -19,7 +17,9 @@ Play Asset Delivery integration for Expo
                       // Internal name of the asset pack
                       name: 'asset-pack',
                       // Path of the assets directory relative to the (Expo) project root folder
-                      path: 'assets'
+                      path: 'assets',
+                      // Delivery mode (see https://developer.android.com/guide/playcore/asset-delivery#delivery-modes)
+                      deliveryMode: 'fast-follow',
                   },
               ],
           ],
@@ -34,7 +34,28 @@ Play Asset Delivery integration for Expo
 
 ## Usage
 
-### Load and show image from asset pack
+If you are using `fast-follow` or `on-demand` delivery modes, you **must** check the status of the asset pack before
+trying to access the assets:
+```js
+import { getAssetPackStates, requestAssetPackFetch, AssetPackStatus } from 'expo-play-asset-delivery';
+
+const state = await getAssetPackStates(['asset-pack'])['asset-pack']
+if (state.status !== AssetPackStatus.COMPLETED) {
+    await requestAssetPackFetch(['asset-pack']);
+    // ...
+}
+```
+
+After requesting the download of the asset pack, you can add an event listener to monitor the download progress:
+```js
+import { addAssetPackProgressListener, AssetPackState } from '@one-am/expo-play-asset-delivery';
+
+addAssetPackProgressListener((state: AssetPackState) => {
+    // ...
+});
+```
+
+Regardless of 
 ```js
 import { loadPackedAssetAsBase64 } from 'expo-play-asset-delivery';
 

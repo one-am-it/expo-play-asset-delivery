@@ -1530,10 +1530,10 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@one-am/expo-play-asset-delivery@^0.2.2":
-  version "0.2.3"
-  resolved "https://git.oneam.it/api/v4/projects/781/packages/npm/@one-am/expo-play-asset-delivery/-/@one-am/expo-play-asset-delivery-0.2.3.tgz#1b916768af9cd510d3b7eccca4b9f4c4a070c314"
-  integrity sha1-G5FnaK+c1RDTt+zMpLn0xKBwwxQ=
+"@one-am/expo-play-asset-delivery@^1.1.0":
+  version "1.1.0"
+  resolved "https://git.oneam.it/api/v4/projects/781/packages/npm/@one-am/expo-play-asset-delivery/-/@one-am/expo-play-asset-delivery-1.1.0.tgz#1fcc3eee8546922c241db84fb24be1b455368e0f"
+  integrity sha1-H8w+7oVGkiwkHbhPskvhtFU2jg8=
   dependencies:
     "@expo/config-plugins" "^5.0.4"
 

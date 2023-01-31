@@ -1,4 +1,6 @@
-import ExpoPlayAssetDeliveryModule from './ExpoPlayAssetDeliveryModule';
+import {EventEmitter, requireNativeModule} from "expo-modules-core";
+
+const moduleEventEmitter = new EventEmitter(requireNativeModule('ExpoPlayAssetDelivery'));
 
 /**
  * Loads an asset from an asset pack and returns the content as a byte array.
@@ -6,7 +8,7 @@ import ExpoPlayAssetDeliveryModule from './ExpoPlayAssetDeliveryModule';
  * @param assetPackName Name of the asset pack containing the asset. This should not be specified for install-time asset packs.
  */
 export async function loadPackedAssetAsBytes(assetName: string, assetPackName?: string): Promise<Uint8Array> {
-    return ExpoPlayAssetDeliveryModule.loadPackedAssetAsByteArray(assetName, assetPackName);
+    return requireNativeModule('ExpoPlayAssetDelivery').loadPackedAssetAsByteArray(assetName, assetPackName);
 }
 
 /**
@@ -15,15 +17,19 @@ export async function loadPackedAssetAsBytes(assetName: string, assetPackName?: 
  * @param assetPackName Name of the asset pack containing the asset. This should not be specified for install-time asset packs.
  */
 export async function loadPackedAssetAsBase64(assetName: string, assetPackName?: string): Promise<string> {
-    return ExpoPlayAssetDeliveryModule.loadPackedAssetAsBase64(assetName, assetPackName);
+    return requireNativeModule('ExpoPlayAssetDelivery').loadPackedAssetAsBase64(assetName, assetPackName);
 }
 
 export async function getAssetPackStates(assetPackNames: string[]): Promise<AssetPackStates> {
-    return ExpoPlayAssetDeliveryModule.getAssetPackStates(assetPackNames);
+    return requireNativeModule('ExpoPlayAssetDelivery').getAssetPackStates(assetPackNames);
 }
 
 export async function requestAssetPackFetch(assetPackNames: string[]): Promise<AssetPackStates> {
-    return ExpoPlayAssetDeliveryModule.requestAssetPackFetch(assetPackNames);
+    return requireNativeModule('ExpoPlayAssetDelivery').requestAssetPackFetch(assetPackNames);
+}
+
+export function addAssetPackProgressListener(callback: (state: AssetPackState) => void) {
+    return moduleEventEmitter.addListener('onAssetPackStateUpdate', callback);
 }
 
 export type AssetPackStates = Record<AssetPackState['name'], AssetPackState>

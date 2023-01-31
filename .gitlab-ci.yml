@@ -6,7 +6,7 @@ stages:
 
 .setup:
   before_script:
-    - apt-get update && apt-get -y install rsync
+    - apt-get update && apt-get -y install rsync jq moreutils
     - yarn
 
 build:
@@ -25,6 +25,7 @@ deploy:
   needs:
     - build
   script:
+    - jq '.name = "@one-am/expo-play-asset-delivery"' package.json | sponge package.json
     - echo "@one-am:registry=https://git.oneam.it/api/v4/projects/${CI_PROJECT_ID}/packages/npm/" > .npmrc
     - echo "//git.oneam.it/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
     - npm publish

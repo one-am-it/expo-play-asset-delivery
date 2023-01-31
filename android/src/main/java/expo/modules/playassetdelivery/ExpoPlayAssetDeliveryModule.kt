@@ -13,18 +13,20 @@ import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
 import expo.modules.kotlin.Promise
 import expo.modules.kotlin.functions.Coroutine
+import java.io.FileInputStream
+import java.io.InputStream
 import java.util.Base64
 
 class ExpoPlayAssetDeliveryModule : Module() {
     override fun definition() = ModuleDefinition {
         Name("ExpoPlayAssetDelivery")
 
-        AsyncFunction("loadPackedAssetAsBytes") { assetName: String, promise: Promise ->
-            promise.resolve(readAssetAsBytes(assetName))
+        AsyncFunction("loadPackedAssetAsBytes") { assetName: String, assetPackName: String?, promise: Promise ->
+            promise.resolve(readAssetAsBytes(assetName, assetPackName))
         }
 
-        AsyncFunction("loadPackedAssetAsBase64") { assetName: String, promise: Promise ->
-            promise.resolve(Base64.getEncoder().encodeToString(readAssetAsBytes(assetName)))
+        AsyncFunction("loadPackedAssetAsBase64") { assetName: String, assetPackName: String?, promise: Promise ->
+            promise.resolve(Base64.getEncoder().encodeToString(readAssetAsBytes(assetName, assetPackName)))
         }
 
         AsyncFunction("getAssetPackStates") Coroutine { assetPackNames: List<String> ->
@@ -61,8 +63,14 @@ class ExpoPlayAssetDeliveryModule : Module() {
 
     private val listener = ExpoAssetPackStateUpdateListener(this)
 
-    private fun readAssetAsBytes(assetName: String): ByteArray {
-        val stream = assetManager.open(assetName)
+    private fun readAssetAsBytes(assetName: String, assetPackName: String?): ByteArray {
+        val stream: InputStream
+        if (assetPackName != null) {
+            val packLocation = assetPackManager.getPackLocation(assetPackName)?.path()
+            stream = FileInputStream("$packLocation/$assetName")
+        } else {
+            stream = assetManager.open(assetName)
+        }
         try {
             return stream.readBytes()
         } finally {

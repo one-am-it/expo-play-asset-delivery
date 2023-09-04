@@ -2,7 +2,11 @@
 
 Play Asset Delivery integration for Expo
 
+[![npm](https://img.shields.io/npm/v/expo-play-asset-delivery)](https://www.npmjs.com/package/expo-play-asset-delivery)
+
 ## Installation
+
+- Install the package `expo-play-asset-delivery` from NPM
 
 - Configure Expo Plugin in `app.config.js`
   ```js
@@ -69,6 +73,8 @@ return (
   <Image source={{ uri }} />
 )
 ```
+
+If you have issues loading larger files, see [this issue](https://github.com/one-am-it/expo-play-asset-delivery/issues/1).
 
 ## Development
 In order to access the asset packs during development, you must install `expo-dev-client` and configure it to build as AAB:

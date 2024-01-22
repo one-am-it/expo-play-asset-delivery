@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.homepage       = package['homepage']
   s.platform       = :ios, '13.0'
   s.swift_version  = '5.4'
-  s.source         = { git: 'https://github.com/chris54721/expo-play-asset-delivery' }
+  s.source         = { git: 'https://github.com/one-am-it/expo-play-asset-delivery' }
   s.static_framework = true
 
   s.dependency 'ExpoModulesCore'
